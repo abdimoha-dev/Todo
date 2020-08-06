@@ -23,7 +23,11 @@ function Todo(props) {
                 <label className="todo-label" htmlFor={props.id}>
                     New name for {props.name}
                 </label>
-                <input id={props.id} className="todo-test" type="text" />
+                <input id={props.id}
+                    className="todo-test"
+                    type="text"
+                    value={newName}
+                    onChange={handleChange} />
             </div>
             <div className="btn-group">
                 <button type="button"

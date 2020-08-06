@@ -5,6 +5,7 @@ function Form(props) {
 
     function handleChange(e) {
         e.preventDefault();
+        console.log(e.target.value);
         //function that can be used to update name
         setName(e.target.value)
 
