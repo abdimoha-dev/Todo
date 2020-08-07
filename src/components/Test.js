@@ -1,33 +1,28 @@
 import React, { useState } from 'react'
 
-function Test(props) {
+function Test() {
+    const obj1 = [{ name: 'Sex Robot', age: 2 }]
+
+    const [details, setDetails] = useState(obj1)
+
+    function assignDetails() {
+        //const obj2 = { name: 'Machine', age: 3, res: 'Kale' }
+        const residence = "Isiolo"
+
+        const loop = details.map(dt => {
+            dt.res = residence
+            return { ...details }
+        })
+        setDetails(loop)
+    }
+    console.log(details);
+
+
 
     return (
-        <div className="stack-small">
-            <div className="c-cb">
-                <input
-                    id={props.id}
-                    type="checkbox"
-                    defaultChecked={props.completed}
-                    onChange={() => props.toggleTaskCompleted(props.id)}
-                />
-                <label className="todo-label" htmlFor={props.id}>
-                    {props.name}
-                </label>
-            </div>
-            <div className="btn-group">
-                <button type="button" className="btn">
-                    Edit <span className="visually-hidden">{props.name}</span>
-                </button>
-                <button
-                    type="button"
-                    className="btn btn__danger"
-                    onClick={() => props.deleteTask(props.id)}
-                >
-                    Delete <span className="visually-hidden">{props.name}</span>
-                </button>
-            </div>
-        </div>
+        <form>
+            <input onChange={assignDetails} />
+        </form>
     )
 }
 
