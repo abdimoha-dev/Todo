@@ -12,8 +12,9 @@ const DATA = [
 ];
 ReactDOM.render(
   <React.StrictMode>
-    {/** */}
-    <App tasks={DATA} />
+    {/* <Test/> */}
+    <App tasks={DATA} /> 
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

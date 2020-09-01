@@ -10,13 +10,14 @@ function Todo(props) {
         //function that can be used to update newName
         setNewName(e.target.value);
     }
-
+    //handle the edit form’s onSubmit event
     function handleSubmit(e) {
         e.preventDefault();
         props.editTask(props.id, newName);
         setNewName("");
         setEditing(false)
     }
+    //edit mode in UI
     const editingTemplate = (
         <form className="stack-small" onSubmit={handleSubmit}>
             <div className="form-group">
@@ -42,9 +43,9 @@ function Todo(props) {
                     <span className="visually-hidden">new name for {props.name}</span>
                 </button>
             </div>
-
         </form>
     )
+    //view mode in UI
     const viewTemplate = (
         <div className="stack-small">
             <div className="c-cb">

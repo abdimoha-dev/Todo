@@ -12,14 +12,15 @@ import Form from './components/Form';
  * and we don’t want that. 
  * 
  * */
-// functions that we will use to filter the tasks data array
 const FILTER_MAP = {
+  // functions that we will use to filter the tasks data array
   All: () => true,
   Active: task => !task.completed,
   completed: task => task.completed
 }
 //collect an array of FILTER_NAMES
 const FILTER_NAMES = Object.keys(FILTER_MAP)
+
 
 function App(props) {
   //initial state
@@ -43,18 +44,28 @@ function App(props) {
     setTasks(updatedTasks);
   }
 
-  const taskList = tasks.map(task => (
-   
-      < Todo
-      id = { task.id }
-      name = { task.name }
-      completed = { task.completed }
-      key = { task.id }
-      toggleTaskCompleted = { toggleTaskCompleted }
-      deleteTask = { deleteTask }
-      editTask = { editTask } />
-  )
+  // const filt = tasks.filter(FILTER_MAP[filter])
+  // console.log(filt);
+  const taskList = tasks
+  .map(task => (
+    <Todo
+      id={task.id}
+      name={task.name}
+      completed={task.completed}
+      key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
+      editTask={editTask}
+    />
+  ));
 
+  const filterList = FILTER_NAMES.map(name => (
+    <FilterButton
+      key={name}
+      name={name}
+      isPressed={name === filter} // name == state filter
+      setFilter={setFilter} />
+  )
   )
   const tasksNoun = taskList.length > 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
@@ -83,9 +94,7 @@ function App(props) {
       <h1>TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
-        <FilterButton />
-        <FilterButton />
-        <FilterButton />
+        {filterList}
       </div>
       <h2 id="list-heading">
         {headingText}
