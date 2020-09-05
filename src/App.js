@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FilterableProductTable from "./components/FilterableProductTable";
 import Todo from "./components/Todo";
+import List from "./components/List";
 
 const App = () => {
   //const [isOnline, setIsOnline] = useState(null);
@@ -45,7 +46,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <FilterableProductTable data={data} />
+      <List />
     </div>
   );
 };

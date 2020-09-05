@@ -13,7 +13,7 @@ const DATA = [
 ReactDOM.render(
   <React.StrictMode>
     {/* <Test/> */}
-    <App tasks={DATA} /> 
+    <App/> 
     
   </React.StrictMode>,
   document.getElementById('root')
