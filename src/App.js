@@ -3,6 +3,7 @@ import FilterableProductTable from "./components/FilterableProductTable";
 import Todo from "./components/Todo";
 import List from "./components/List";
 import Users from "./components/Users";
+import Errors from "./components/Errors";
 
 const App = () => {
   //const [isOnline, setIsOnline] = useState(null);
@@ -48,6 +49,7 @@ const App = () => {
   return (
     <div className="app">
       <Users />
+      <Errors/>
     </div>
   );
 };
